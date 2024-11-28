@@ -37,5 +37,7 @@
 - `kubectl get services -o wide`
 - `kubectl describe service nginx-deployment`
 - `kubectl delete service nginx-deployment`
+- `kubectl expose deployment nginx-deployment --type=NodePort --port=80`
+  - [node: docker-desktop] > curl localhost:<mapped-port> [hostname name for docker-desktop is localhost as docker is not a vm; it uses system resources]
 
 ---
