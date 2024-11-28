@@ -1,0 +1,15 @@
+{
+  "name": "kubernetes",
+  "description": "",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "Arijit Das <arijit@itobuz.com>",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
