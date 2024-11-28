@@ -18,6 +18,7 @@
 - `kubectl get pods -o wide`
 - `kubectl describe pod nginx`
 - `kubectl delete pod nginx`
+- `kubectl exec <pod_name> -- <cmd>`
 
 ---
 
@@ -66,13 +67,18 @@
 
 ## YAML Config
 
-- `kubectl apply -f ./kubernetes/deployment.yaml`
-- `kubectl apply -f ./kubernetes/service.yaml`
+- `kubectl apply -f ./kubernetes/k8s/deployment.yaml`
+- `kubectl apply -f ./kubernetes/k8s/service.yaml`
+- `kubectl delete -f ./kubernetes/k8s/deployment.yaml`
+- `kubectl delete -f ./kubernetes/k8s/service.yaml`
+
+- `kubectl apply -f ./kubernetes/k8s.yaml -f ./kubernetes/nginx.yaml`
+- `kubectl delete -f ./kubernetes/k8s.yaml -f ./kubernetes/nginx.yaml`
 
 ---
 
 ## Cleanup
 
 - `kubectl delete all --all`
-- `kubectl delete -f ./kubernetes/service.yaml`
-- `kubectl delete -f ./kubernetes/deployment.yaml`
+
+---
