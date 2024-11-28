@@ -64,6 +64,15 @@
 
 ---
 
+## YAML Config
+
+- `kubectl apply -f ./kubernetes/deployment.yaml`
+- `kubectl apply -f ./kubernetes/service.yaml`
+
+---
+
 ## Cleanup
 
 - `kubectl delete all --all`
+- `kubectl delete -f ./kubernetes/deployment.yaml`
+- `kubectl delete -f ./kubernetes/service.yaml`

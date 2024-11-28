@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s
+spec:
+  selector:
+    matchLabels:
+      app: k8s
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: k8s
+    spec:
+      containers:
+        - name: kubernetes
+          image: arijititobuz/kubernetes:1.0.1
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: '128Mi'
+              cpu: '250m'
+          ports:
+            - containerPort: 3001

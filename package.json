@@ -6,6 +6,9 @@
   "author": "Arijit Das <arijit@itobuz.com>",
   "private": true,
   "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "node ./src/index.js"
   },
