@@ -4,7 +4,7 @@ import os from 'node:os';
 const app = express();
 
 const hostname = 'localhost';
-const port = 3000;
+const port = 3001;
 
 app.get('/', (req, res) => {
   res.status(200).json({
