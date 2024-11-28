@@ -4,7 +4,7 @@ import os from 'node:os';
 const app = express();
 
 const hostname = 'localhost';
-const port = 3002;
+const port = 3001;
 const version = '2.0.0';
 
 app.get('/', async (req, res) => {
