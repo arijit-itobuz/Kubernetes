@@ -2,7 +2,7 @@
 
 ---
 
-### General
+## General
 
 - `kubectl config get-contexts`
 - `kubectl get nodes`
@@ -12,7 +12,7 @@
 
 ---
 
-### Pod
+## Pod
 
 - `kubectl run nginx --image=nginx`
 - `kubectl get pods -o wide`
@@ -21,24 +21,24 @@
 
 ---
 
-### Deployment
+## Deployment
 
-- `kubectl create deployment nginx-deployment --image=nginx`
+- `kubectl create deployment k8s --image=arijititobuz/kubernetes:1.0.0`
 - `kubectl get deployments -o wide`
-- `kubectl describe deployment nginx-deployment`
-- `kubectl delete deployment nginx-deployment`
-- `kubectl scale deployment nginx-deployment --replicas=5`
+- `kubectl describe deployment k8s`
+- `kubectl delete deployment k8s`
+- `kubectl scale deployment k8s --replicas=5`
 
 ---
 
-### Service
+## Service
 
-- `kubectl expose deployment nginx-deployment --port=8080 --target-port=80`
+- `kubectl expose deployment k8s --port=3001 --target-port=3001`
 - `kubectl get services -o wide`
-- `kubectl describe service nginx-deployment`
-- `kubectl delete service nginx-deployment`
+- `kubectl describe service k8s`
+- `kubectl delete service k8s`
 
-##### NodePort
+#### NodePort
 
 - `kubectl expose deployment k8s --type=NodePort --port=3001`
   - [node: docker-desktop]
@@ -46,7 +46,7 @@
     - hostname is _localhost_ as node is _docker_
     - port is the _mapped-port_
 
-##### LoadBalancer
+#### LoadBalancer
 
 - `kubectl expose deployment k8s --type=LoadBalancer --port=3001`
   - [node: docker-desktop]
@@ -56,10 +56,14 @@
 
 ---
 
-### Rolling Update
+## Rolling Update
 
 - `kubectl get deployment k8s -o yaml`
 - `kubectl set image deployment k8s kubernetes=arijititobuz/kubernetes:1.0.1`
 - `kubectl rollout status deploy k8s`
 
 ---
+
+## Cleanup
+
+- `kubectl delete all --all`
