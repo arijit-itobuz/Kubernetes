@@ -37,7 +37,21 @@
 - `kubectl get services -o wide`
 - `kubectl describe service nginx-deployment`
 - `kubectl delete service nginx-deployment`
-- `kubectl expose deployment nginx-deployment --type=NodePort --port=80`
-  - [node: docker-desktop] > curl localhost:<mapped-port> [hostname name for docker-desktop is localhost as docker is not a vm; it uses system resources]
+
+##### NodePort
+
+- `kubectl expose deployment k8s --type=NodePort --port=3001`
+  - [node: docker-desktop]
+    - `curl localhost:<mapped-port>`
+    - hostname is _localhost_ as node is _docker_
+    - port is the _mapped-port_
+
+##### LoadBalancer
+
+- `kubectl expose deployment k8s --type=LoadBalancer --port=3001`
+  - [node: docker-desktop]
+    - `curl localhost:<actual-port>`
+    - hostname is _localhost_ as node is _docker_
+    - port is the _actual-port_
 
 ---
