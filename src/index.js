@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
     message: 'Hello Docker !',
     hostname: os.hostname(),
     arch: os.arch(),
+    version: '1.0.1',
   });
 });
 
