@@ -1,5 +1,7 @@
 # Kubernetes
 
+---
+
 ## Setup
 
 - npm i [node 22+]
