@@ -18,5 +18,6 @@
 
 _follow kubernetes.md from here_
 _follow eksctl.md from here_
+_follow dashboard.md from here_
 
 ---
