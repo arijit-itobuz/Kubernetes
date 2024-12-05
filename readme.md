@@ -4,6 +4,10 @@
 
 ## Setup
 
+- install `docker`
+- setup `kubernetes` from `docker-desktop`
+- install `kubectl` [https://kubernetes.io/docs/tasks/tools/#kubectl]
+
 - npm i [node 22+]
 
 - docker login
