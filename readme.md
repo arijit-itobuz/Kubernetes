@@ -12,4 +12,7 @@
 
 ---
 
-_follow kubernetes from here_
+_follow kubernetes.md from here_
+_follow eksctl.md from here_
+
+---
