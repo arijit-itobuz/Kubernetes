@@ -26,12 +26,12 @@ spec:
         app: k8s
     spec:
       containers:
-        - name: kubernetes
-          image: arijititobuz/kubernetes:2.0.0
+        - name: k8s
+          image: arijititobuz/kubernetes:3.0.0
           imagePullPolicy: Always
           resources:
             limits:
-              memory: '128Mi'
+              memory: '256Mi'
               cpu: '250m'
           ports:
             - containerPort: 3001

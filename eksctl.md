@@ -11,9 +11,9 @@
 eksctl create cluster \
 --profile snapee-test \
 --region us-east-1 \
---name leadhawk-eks \
---nodegroup-name leadhawk-eks-workers \
---node-type t3.micro \
+--name demo-eks \
+--nodegroup-name demo-worker-nodes \
+--node-type t3.medium \
 --nodes 3 \
 --nodes-min 1 \
 --nodes-max 4 \
