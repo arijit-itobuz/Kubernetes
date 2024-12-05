@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leadhawk-user
+spec:
+  selector:
+    matchLabels:
+      app: leadhawk-user
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: leadhawk-user
+    spec:
+      containers:
+        - name: leadhawk-user
+          image: 242201279177.dkr.ecr.us-east-1.amazonaws.com/leadhawk_user:latest
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: '512Mi'
+              cpu: '250m'
+          ports:
+            - containerPort: 6001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: leadhawk-user
+spec:
+  selector:
+    app: leadhawk-user
+  type: LoadBalancer
+  ports:
+    - port: 6001
+      targetPort: 6001
