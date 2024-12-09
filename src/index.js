@@ -4,14 +4,17 @@ import os from 'node:os';
 const app = express();
 
 const hostname = 'localhost';
-const port = 3001;
-const version = '2.0.0';
+const port = process.env.PORT;
+const app_env = process.env.APP_ENV;
+const version = process.env.VERSION;
+const db_url = process.env.MONGODB_URL;
 
 app.get('/', async (req, res) => {
   try {
     return res.status(200).json({
       success: true,
       message: 'Hello Kubernetes !',
+      app_env: app_env,
       hostname: os.hostname(),
       arch: os.arch(),
       version: version,
