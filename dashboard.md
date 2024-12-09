@@ -17,3 +17,5 @@
 - `kubectl get secret -n monitoring stable-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo`
 
 - _Grafana user name = admin; password = prom-operator_
+- _Prometheus url = http://<LoadBalancer_Url>:9090/_
+- _Grafana url = http://<LoadBalancer_Url>:80/_
