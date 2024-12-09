@@ -6,19 +6,19 @@ spec:
   selector:
     matchLabels:
       app: k8s
-  replicas: 5
+  replicas: 3
   template:
     metadata:
       labels:
         app: k8s
     spec:
       containers:
-        - name: kubernetes
-          image: arijititobuz/kubernetes:1.0.1
+        - name: k8s
+          image: arijititobuz/kubernetes:4.0.0
           imagePullPolicy: Always
           resources:
             limits:
-              memory: '128Mi'
+              memory: '256Mi'
               cpu: '250m'
           ports:
             - containerPort: 3001
