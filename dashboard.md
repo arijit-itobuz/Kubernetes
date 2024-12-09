@@ -1,4 +1,4 @@
-# Kubernetes Dashboard
+# Dashboard
 
 ---
 
@@ -19,3 +19,9 @@
 - _Grafana user name = admin; password = prom-operator_
 - _Prometheus url = http://<LoadBalancer_Url>:9090/_
 - _Grafana url = http://<LoadBalancer_Url>:80/_
+
+---
+
+## Kubernetes Dashboard
+
+---
