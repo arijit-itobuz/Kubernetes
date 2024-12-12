@@ -9,6 +9,7 @@
 - install `kubectl` [https://kubernetes.io/docs/tasks/tools/#kubectl]
 - install `helm` [https://helm.sh/docs/intro/install/]
 - install `eksctl` [https://eksctl.io/installation/#for-unix]
+- install `terraform` [https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli]
 
 ---
 
