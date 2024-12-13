@@ -7,7 +7,7 @@
 - `eksctl version`
 - `eksctl create cluster --profile <aws_profile> --region <aws_region> -n <cluster_name> --nodegroup-name <node_group_name> --node-type t2.micro --nodes 2`
 - `eksctl get cluster --profile <aws_profile> --name demo-eks --region us-east-1`
-- `aws eks update-kubeconfig --region <aws_region> --name <cluster_name>`
+- `aws eks update-kubeconfig --profile <aws_profile> --region <aws_region> --name <cluster_name>`
 - `eksctl delete cluster --profile <aws_profile> --region <aws_region> -n <cluster_name>`
 
 eksctl create cluster \
