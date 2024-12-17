@@ -16,7 +16,7 @@ eksctl create cluster \
 --name demo-eks \
 --nodegroup-name demo-worker-nodes \
 --node-type t3.medium \
---nodes 5 \
+--nodes 3 \
 --nodes-min 1 \
---nodes-max 6 \
+--nodes-max 5 \
 --managed

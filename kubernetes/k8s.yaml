@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: k8s
-          image: arijititobuz/kubernetes:4.0.0
+          image: arijititobuz/kubernetes:5.0.0
           imagePullPolicy: Always
           resources:
             limits:

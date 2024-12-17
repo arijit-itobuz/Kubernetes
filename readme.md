@@ -26,6 +26,8 @@
 
 - _follow kubernetes.md from here_
 - _follow eksctl.md from here_
+- _follow secrets.md from here_
 - _follow dashboard.md from here_
+- _follow terraform.md from here_
 
 ---
