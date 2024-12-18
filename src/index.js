@@ -1,13 +1,14 @@
+import "dotenv/config"
 import express from 'express';
 import os from 'node:os';
 import { MongoClient } from 'mongodb';
 
 const app = express();
 const hostname = 'localhost';
-const port = process.env.PORT;
-const app_env = process.env.APP_ENV;
-const version = process.env.VERSION;
-const mongodb_url = process.env.MONGODB_URL;
+const port = process.env.PORT ?? 3001;
+const app_env = process.env.APP_ENV ?? "LOCAL";
+const version = process.env.VERSION ?? "7.0.0";
+const mongodb_url = process.env.MONGODB_URL ?? "mongodb+srv://arijit:QffrRzYEHvCLt7Pv@demo-eks-cluster-1.ldann.mongodb.net/?retryWrites=true&w=majority&appName=demo-eks-cluster-1";
 const mongodb_client = new MongoClient(mongodb_url);
 
 await mongodb_client.connect();

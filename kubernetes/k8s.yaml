@@ -12,9 +12,17 @@ spec:
       labels:
         app: k8s
     spec:
+      serviceAccountName: api-sa
+      volumes:
+        - name: k8s-secrets
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes: 
+              secretProviderClass: demo-eks-secrets
       containers:
         - name: k8s
-          image: arijititobuz/kubernetes:5.0.0
+          image: arijititobuz/kubernetes:7.0.0
           imagePullPolicy: Always
           resources:
             limits:
@@ -22,6 +30,9 @@ spec:
               cpu: '250m'
           ports:
             - containerPort: 3001
+          volumeMounts:
+            - name: k8s-secrets
+              mountPath: /tmp
 
 ---
 apiVersion: v1
