@@ -18,7 +18,7 @@ spec:
           csi:
             driver: secrets-store.csi.k8s.io
             readOnly: true
-            volumeAttributes: 
+            volumeAttributes:
               secretProviderClass: demo-eks-secrets
       containers:
         - name: k8s

@@ -80,6 +80,12 @@
 
 ---
 
+## Exec
+
+- `kubectl exec -it <pod_name> -- sh`
+
+---
+
 ## YAML Config
 
 - `kubectl apply -f ./kubernetes/k8s/deployment.yaml`
