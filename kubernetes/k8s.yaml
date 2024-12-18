@@ -32,7 +32,7 @@ spec:
             - containerPort: 3001
           volumeMounts:
             - name: k8s-secrets
-              mountPath: /tmp
+              mountPath: /mnt/secrets
 
 ---
 apiVersion: v1
