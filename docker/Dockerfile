@@ -9,4 +9,4 @@ RUN npm i
 
 EXPOSE 3001
 
-ENTRYPOINT [ "npm", "run", "dev" ]
+ENTRYPOINT [ "npm", "run", "k8s" ]
