@@ -4,12 +4,22 @@
 
 ## General
 
+- ``
+
+---
+
+## Config
+
 - `kubectl config get-contexts`
-- `kubectl config get-users`
 - `kubectl config use-context <context-name>`
 - `kubectl config current-context`
 - `kubectl config delete-context <context_name>`
+- `kubectl config get-users`
 - `kubectl config delete-user <user_name>`
+
+---
+
+## Namespace
 
 - `kubectl get namespaces`
 
@@ -69,12 +79,20 @@
 
 ---
 
-## Rolling Update
+## Rollout
 
 - `kubectl get deployment k8s -o yaml`
 - `kubectl set image deployment k8s kubernetes=arijititobuz/kubernetes:1.0.1`
-- `kubectl rollout status deploy k8s`
+- `kubectl rollout status deployment k8s`
 - `kubectl rollout restart deployment k8s`
+- `kubectl rollout history deployment k8s`
+- `kubectl rollout history deployment k8s --revision=1`
+
+---
+
+## Replica Set
+
+- `kubectl get replicaset`
 
 ---
 
