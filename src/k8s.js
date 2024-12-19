@@ -4,11 +4,13 @@ import os from 'node:os';
 import { MongoClient } from 'mongodb';
 
 let config = {
-  app_env: process.env.APP_ENV,
-  version: process.env.VERSION,
+  app_env: process.env.APP_ENV ?? 'LOCAL',
+  version: process.env.VERSION ?? 'LOCAL',
   hostname: 'localhost',
-  port: process.env.PORT,
-  mongodb_url: process.env.MONGODB_URL,
+  port: process.env.PORT ?? 3001,
+  mongodb_url:
+    process.env.MONGODB_URL ??
+    'mongodb+srv://arijit:QffrRzYEHvCLt7Pv@demo-eks-cluster-1.ldann.mongodb.net/?retryWrites=true&w=majority&appName=demo-eks-cluster-1',
 };
 
 if (process.env.APP_SECRET_PROVIDER === 'aws_secretsmanager') {
@@ -41,7 +43,7 @@ async function main() {
         message: 'Hello k8s !',
         app_env: app_env,
         version: version,
-        hostname: os.hostname(),
+        os_hostname: os.hostname(),
         arch: os.arch(),
         APP_SECRET_PROVIDER: process.env.APP_SECRET_PROVIDER,
       });
