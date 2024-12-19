@@ -5,8 +5,11 @@
 ## General
 
 - `kubectl config get-contexts`
+- `kubectl config get-users`
 - `kubectl config use-context <context-name>`
 - `kubectl config current-context`
+- `kubectl config delete-context <context_name>`
+- `kubectl config delete-user <user_name>`
 
 - `kubectl get namespaces`
 
