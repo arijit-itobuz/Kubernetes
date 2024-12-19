@@ -74,6 +74,7 @@
 - `kubectl get deployment k8s -o yaml`
 - `kubectl set image deployment k8s kubernetes=arijititobuz/kubernetes:1.0.1`
 - `kubectl rollout status deploy k8s`
+- `kubectl rollout restart deployment k8s`
 
 ---
 

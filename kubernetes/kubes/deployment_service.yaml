@@ -22,7 +22,7 @@ spec:
               secretProviderClass: aws-kubes-secrets
       containers:
         - name: kubes
-          image: arijititobuz/kubes:8.0.0
+          image: arijititobuz/kubes:9.0.0
           imagePullPolicy: Always
           resources:
             limits:

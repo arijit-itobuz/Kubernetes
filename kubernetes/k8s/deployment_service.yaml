@@ -22,7 +22,7 @@ spec:
               secretProviderClass: aws-k8s-secrets
       containers:
         - name: k8s
-          image: arijititobuz/k8s:8.0.0
+          image: arijititobuz/k8s:9.0.0
           imagePullPolicy: Always
           resources:
             limits:
