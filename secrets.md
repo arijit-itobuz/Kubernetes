@@ -39,5 +39,6 @@
 - `kubectl apply -f ./kubernetes/k8s/deployment_service.yaml -f ./kubernetes/kubes/deployment_service.yaml -f ./kubernetes/nginx/deployment_service.yaml`
 - `kubectl get deployments -o wide`
 - `kubectl get services -o wide`
+- `kubectl rollout restart deployment <app | service>`
 
 ---
