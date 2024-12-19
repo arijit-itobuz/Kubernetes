@@ -31,6 +31,7 @@
   ```
 - `eksctl utils associate-iam-oidc-provider --profile snapee-test --region us-east-1 --cluster demo-eks --approve`
 - `eksctl create iamserviceaccount --profile snapee-test --name demo-aws-secret-sa --region us-east-1 --cluster demo-eks --attach-policy-arn arn:aws:iam::242201279177:policy/demo-csi-policy --approve --override-existing-serviceaccounts`
+- `kubectl get csidrivers`
 - `kubectl get serviceaccount`
 - `kubectl describe sa demo-aws-secret-sa`
 - `kubectl apply -f ./kubernetes/k8s/secrets.yaml -f ./kubernetes/kubes/secrets.yaml`
