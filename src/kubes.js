@@ -38,7 +38,7 @@ async function main() {
     try {
       return res.status(200).json({
         success: true,
-        message: 'Hello k8s !',
+        message: 'Hello kubes !',
         app_env: app_env,
         version: version,
         hostname: os.hostname(),
@@ -60,9 +60,9 @@ async function main() {
     }
   });
 
-  app.get('/kubes', async (req, res) => {
+  app.get('/k8s', async (req, res) => {
     try {
-      const url = 'http://kubes:3002';
+      const url = 'http://k8s:3001';
       const response = await fetch(url);
       return res.status(200).send(await response.text());
     } catch (error) {

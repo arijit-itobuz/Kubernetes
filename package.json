@@ -10,7 +10,8 @@
     "node": ">=22"
   },
   "scripts": {
-    "k8s": "node ./src/k8s.js"
+    "k8s": "node ./src/k8s.js",
+    "kubes": "node ./src/kubes.js"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
