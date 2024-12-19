@@ -1,14 +1,34 @@
-import "dotenv/config"
+import 'dotenv/config';
 import express from 'express';
 import os from 'node:os';
 import { MongoClient } from 'mongodb';
 
+let config = {
+  app_env: process.env.APP_ENV,
+  version: process.env.VERSION,
+  hostname: 'localhost',
+  port: process.env.PORT,
+  mongodb_url: process.env.MONGODB_URL,
+};
+
+if (process.env.APP_SECRET_PROVIDER === 'aws_secretsmanager') {
+  const aws_secetsmanager_secret = JSON.parse(process.env.APP_SECRETS);
+  config = {
+    app_env: aws_secetsmanager_secret.APP_ENV,
+    version: aws_secetsmanager_secret.VERSION,
+    hostname: 'localhost',
+    port: aws_secetsmanager_secret.PORT,
+    mongodb_url: aws_secetsmanager_secret.MONGODB_URL,
+  };
+}
+
+const app_env = config.app_env;
+const version = config.version;
+const hostname = config.hostname;
+const port = config.port;
+const mongodb_url = config.mongodb_url;
+
 const app = express();
-const hostname = 'localhost';
-const port = process.env.PORT ?? 3001;
-const app_env = process.env.APP_ENV ?? "LOCAL";
-const version = process.env.VERSION ?? "7.0.0";
-const mongodb_url = process.env.MONGODB_URL ?? "mongodb+srv://arijit:QffrRzYEHvCLt7Pv@demo-eks-cluster-1.ldann.mongodb.net/?retryWrites=true&w=majority&appName=demo-eks-cluster-1";
 const mongodb_client = new MongoClient(mongodb_url);
 
 await mongodb_client.connect();
@@ -23,6 +43,7 @@ async function main() {
         hostname: os.hostname(),
         arch: os.arch(),
         version: version,
+        APP_SECRET_PROVIDER: process.env.APP_SECRET_PROVIDER,
       });
     } catch (error) {
       return res.status(500).json({ success: false, message: error?.message });
@@ -46,7 +67,9 @@ async function main() {
 
       const users = await collection.find({}).toArray();
 
-      return res.status(200).json({ success: true, message: 'users', data: users });
+      return res
+        .status(200)
+        .json({ success: true, message: 'users', data: users });
     } catch (error) {
       return res.status(500).json({ success: false, message: error?.message });
     }

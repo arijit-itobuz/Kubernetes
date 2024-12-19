@@ -12,17 +12,17 @@ spec:
       labels:
         app: k8s
     spec:
-      serviceAccountName: api-sa
+      serviceAccountName: demo-aws-secret-sa
       volumes:
         - name: k8s-secrets
           csi:
             driver: secrets-store.csi.k8s.io
             readOnly: true
             volumeAttributes:
-              secretProviderClass: demo-eks-secrets
+              secretProviderClass: aws-k8s-secrets
       containers:
         - name: k8s
-          image: arijititobuz/kubernetes:7.0.0
+          image: arijititobuz/k8s:8.0.0
           imagePullPolicy: Always
           resources:
             limits:
@@ -32,7 +32,15 @@ spec:
             - containerPort: 3001
           volumeMounts:
             - name: k8s-secrets
-              mountPath: /mnt/secrets
+              mountPath: /mnt/app-secrets
+          env:
+            - name: APP_SECRET_PROVIDER
+              value: aws_secretsmanager
+            - name: APP_SECRETS
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: APP_SECRETS
 
 ---
 apiVersion: v1
