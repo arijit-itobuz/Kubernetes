@@ -87,6 +87,7 @@
 - `kubectl rollout restart deployment k8s`
 - `kubectl rollout history deployment k8s`
 - `kubectl rollout history deployment k8s --revision=1`
+- `kubectl rollout undo deployment k8s --to-revision=1`
 
 ---
 
