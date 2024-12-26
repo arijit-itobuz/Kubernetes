@@ -36,7 +36,7 @@
 - `kubectl describe sa demo-aws-secret-sa`
 - `kubectl apply -f ./kubernetes/k8s/secrets.yaml -f ./kubernetes/kubes/secrets.yaml`
 - `kubectl get secretproviderclass`
-- `kubectl apply -f ./kubernetes/k8s/deployment_service.yaml -f ./kubernetes/kubes/deployment_service.yaml -f ./kubernetes/nginx/deployment_service.yaml`
+- `kubectl apply -f ./kubernetes/redis/deployment_service.yaml -f ./kubernetes/nginx/deployment_service.yaml -f ./kubernetes/k8s/deployment_service.yaml -f ./kubernetes/kubes/deployment_service.yaml`
 - `kubectl get deployments -o wide`
 - `kubectl get services -o wide`
 - `kubectl rollout restart deployment <app | service>`
