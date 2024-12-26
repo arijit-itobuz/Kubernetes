@@ -10,13 +10,15 @@
 - `aws eks update-kubeconfig --profile <aws_profile> --region <aws_region> --name <cluster_name>`
 - `eksctl delete cluster --profile <aws_profile> --region <aws_region> -n <cluster_name>`
 
-eksctl create cluster \
---profile snapee-test \
---region us-east-1 \
---name demo-eks \
---nodegroup-name demo-worker-nodes \
---node-type t3.medium \
---nodes 3 \
---nodes-min 1 \
---nodes-max 5 \
---managed
+  ```
+  eksctl create cluster \
+  --profile snapee-test \
+  --region us-east-1 \
+  --name demo-eks \
+  --nodegroup-name demo-worker-nodes \
+  --node-type t3.medium \
+  --nodes 3 \
+  --nodes-min 1 \
+  --nodes-max 5 \
+  --managed
+  ```
