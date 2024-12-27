@@ -111,11 +111,11 @@
 
 ## YAML Config
 
-- `kubectl apply -f ./kubernetes/k8s/deployment_service.yaml`
-- `kubectl delete -f ./kubernetes/k8s/deployment_service.yaml`
+- `kubectl apply -f ./kubernetes/nginx/deployment_service.yaml`
+- `kubectl delete -f ./kubernetes/nginx/deployment_service.yaml`
 
-- `kubectl apply -f ./kubernetes/k8s/deployment_service.yaml -f ./kubernetes/nginx/deployment_service.yaml`
-- `kubectl delete -f ./kubernetes/k8s/deployment_service.yaml -f ./kubernetes/nginx/deployment_service.yaml`
+- `kubectl apply -f ./kubernetes/nginx/deployment_service.yaml -f ./kubernetes/redis/deployment_service.yaml -f ./kubernetes/k8s/deployment_service.yaml -f ./kubernetes/kubes/deployment_service.yaml`
+- `kubectl delete -f ./kubernetes/nginx/deployment_service.yaml -f ./kubernetes/redis/deployment_service.yaml -f ./kubernetes/k8s/deployment_service.yaml -f ./kubernetes/kubes/deployment_service.yaml`
 
 ---
 
