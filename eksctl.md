@@ -9,7 +9,7 @@
 - `eksctl get cluster --profile <aws_profile> --name demo-eks --region us-east-1`
 - `aws eks update-kubeconfig --profile <aws_profile> --region <aws_region> --name <cluster_name>`
 - `eksctl delete cluster --profile <aws_profile> --region <aws_region> -n <cluster_name>`
-
+  ***
   ```
   eksctl create cluster \
   --profile snapee-test \
@@ -22,3 +22,4 @@
   --nodes-max 5 \
   --managed
   ```
+  ***

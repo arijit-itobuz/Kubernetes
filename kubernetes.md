@@ -35,7 +35,7 @@
 
 - `kubectl get pods` [--namespace=default]
 - `kubectl get pods --namespace=<namesapce>`
-
+  ***
 - `kubectl run nginx --image=nginx`
 - `kubectl get pods -o wide`
 - `kubectl describe pod nginx`
@@ -113,7 +113,7 @@
 
 - `kubectl apply -f ./kubernetes/nginx/deployment_service.yaml`
 - `kubectl delete -f ./kubernetes/nginx/deployment_service.yaml`
-
+  ***
 - `kubectl apply -f ./kubernetes/nginx/deployment_service.yaml -f ./kubernetes/redis/deployment_service.yaml -f ./kubernetes/k8s/deployment_service.yaml -f ./kubernetes/kubes/deployment_service.yaml`
 - `kubectl delete -f ./kubernetes/nginx/deployment_service.yaml -f ./kubernetes/redis/deployment_service.yaml -f ./kubernetes/k8s/deployment_service.yaml -f ./kubernetes/kubes/deployment_service.yaml`
 

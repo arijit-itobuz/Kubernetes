@@ -15,10 +15,11 @@
 - `kubectl edit service stable-kube-prometheus-sta-prometheus -n monitoring` [edit **type** from **ClusterIP** to **LoadBalancer**]
 - `kubectl edit service stable-grafana -n monitoring` [edit **type** from **ClusterIP** to **LoadBalancer**]
 - `kubectl get secret -n monitoring stable-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo`
-
+  ***
 - _Grafana user name = admin; password = prom-operator_
 - _Prometheus url = http://<LoadBalancer_Url>:9090/_
 - _Grafana url = http://<LoadBalancer_Url>:80/_
+  ***
 
 ---
 
