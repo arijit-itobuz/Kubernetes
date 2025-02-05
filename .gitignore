@@ -1,5 +1,18 @@
+# .gitignore
+
 /node_modules
 /tmp
-/terraform
+/dist
+/debug
+/log
+
+/terraform/.terraform
+/terraform/.terraform.lock.hcl
+/terraform/terraform.tfstate
+/terraform/terraform.tfstate.backup
+
 .env*
 !.env.sample
+.DS_Store
+*.pdf
+*.pem
