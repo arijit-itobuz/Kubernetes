@@ -20,12 +20,14 @@ let config = {
 
 // aws secretmanager config
 if (process.env.APP_SECRET_PROVIDER === 'aws_secretsmanager') {
+  console.log('Fetching secrets from AWS Secrets Manager');
+
   const aws_secetsmanager_secret = JSON.parse(process.env.APP_SECRETS);
   config = {
     app_env: aws_secetsmanager_secret.APP_ENV,
-    version: aws_secetsmanager_secret.VERSION,
+    version: aws_secetsmanager_secret.APP_VERSION,
     hostname: 'localhost',
-    port: aws_secetsmanager_secret.PORT,
+    port: aws_secetsmanager_secret.APP_PORT,
     mongodb_url: aws_secetsmanager_secret.MONGODB_URL,
     redis_host: aws_secetsmanager_secret.REDIS_HOST,
     redis_port: aws_secetsmanager_secret.REDIS_PORT,
@@ -58,6 +60,7 @@ async function main() {
           app_version: config.version,
           os_hostname: os.hostname(),
           arch: os.arch(),
+          KUBERNETES_DEPLOYMENT_VERSION: process.env.KUBERNETES_DEPLOYMENT_VERSION ?? 'N/A',
         },
       });
     } catch (error) {

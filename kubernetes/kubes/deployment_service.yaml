@@ -34,8 +34,13 @@ spec:
             - name: kubes-secrets
               mountPath: /mnt/kubes-secrets
           env:
+            - name: KUBERNETES_DEPLOYMENT_VERSION
+              value: "1.0.0"
             - name: APP_SECRET_PROVIDER
-              value: aws_secretsmanager
+              valueFrom:
+                secretKeyRef:
+                  name: kubernetes-kubes-secrets
+                  key: APP_SECRET_PROVIDER
             - name: APP_SECRETS
               valueFrom:
                 secretKeyRef:
