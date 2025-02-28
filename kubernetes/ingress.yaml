@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ingress-http
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/load-balancer-name: demo-ingress-http
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /k8s
+            pathType: Prefix
+            backend:
+              service:
+                name: k8s
+                port:
+                  number: 3001
+    - http:
+        paths:
+          - path: /kubes
+            pathType: Prefix
+            backend:
+              service:
+                name: kubes
+                port:
+                  number: 3002

@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubes
+spec:
+  selector:
+    matchLabels:
+      app: kubes
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: kubes
+    spec:
+      serviceAccountName: demo-aws-secret-sa
+      volumes:
+        - name: kubes-secrets
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: aws-kubes-secrets
+      containers:
+        - name: kubes
+          image: arijititobuz/kubes:10.0.0
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 3002
+          volumeMounts:
+            - name: kubes-secrets
+              mountPath: /mnt/kubes-secrets
+          env:
+            - name: KUBERNETES_DEPLOYMENT_VERSION
+              value: "1.0.0"
+
+            - name: APP_SECRET_PROVIDER
+              valueFrom:
+                secretKeyRef:
+                  name: kubernetes-kubes-secrets
+                  key: APP_SECRET_PROVIDER
+
+            - name: APP_SECRETS
+              valueFrom:
+                secretKeyRef:
+                  name: kubes-secrets
+                  key: APP_SECRETS
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubes
+spec:
+  selector:
+    app: kubes
+  type: ClusterIP
+  ports:
+    - port: 3002
+      targetPort: 3002

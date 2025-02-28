@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:latest
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: '256Mi'
+              cpu: '250m'
+          ports:
+            - containerPort: 6379
+          args:
+            - "--requirepass"
+            - "redis-pass"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  selector:
+    app: redis
+  type: LoadBalancer
+  ports:
+    - name: app
+      port: 6379
+      targetPort: 6379

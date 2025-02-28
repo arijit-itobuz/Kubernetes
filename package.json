@@ -1,0 +1,25 @@
+{
+  "name": "kubernetes",
+  "description": "",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "Arijit Das <arijit@itobuz.com>",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "k8s": "node ./src/k8s.js",
+    "kubes": "node ./src/kubes.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.1",
+    "mongodb": "^6.11.0",
+    "redis": "^4.7.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4"
+  }
+}

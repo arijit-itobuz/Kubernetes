@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s
+spec:
+  selector:
+    matchLabels:
+      app: k8s
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: k8s
+    spec:
+      serviceAccountName: demo-aws-secret-sa
+      volumes:
+        - name: k8s-secrets
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: aws-k8s-secrets
+      containers:
+        - name: k8s
+          image: arijititobuz/k8s:10.0.0
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 3001
+          volumeMounts:
+            - name: k8s-secrets
+              mountPath: /mnt/k8s-secrets
+          env:
+            - name: KUBERNETES_DEPLOYMENT_VERSION
+              value: "1.0.0"
+
+            - name: APP_SECRET_PROVIDER
+              valueFrom:
+                secretKeyRef:
+                  name: kubernetes-k8s-secrets
+                  key: APP_SECRET_PROVIDER
+
+            - name: APP_SECRETS
+              valueFrom:
+                secretKeyRef:
+                  name: k8s-secrets
+                  key: APP_SECRETS
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s
+spec:
+  selector:
+    app: k8s
+  type: ClusterIP
+  ports:
+    - port: 3001
+      targetPort: 3001
