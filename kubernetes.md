@@ -41,6 +41,7 @@
 - `kubectl describe pod nginx`
 - `kubectl delete pod nginx`
 - `kubectl exec <pod_name> -- <cmd>`
+- `kubectl logs -f <pod_name> -n <namespace>`
 
 ---
 
@@ -106,6 +107,19 @@
 ## Exec
 
 - `kubectl exec -it <pod_name> -- sh`
+
+---
+
+## PV/PVC
+
+- `kubectl get pvc -A`
+- `kubectl get pv -A`
+
+- `kubectl get pv <pv_name> -o yaml`
+- `kubectl describe pv <pv_name>`
+
+- `kubectl get pvc <pvc_name> -n elastic-namespace -o yaml`
+- `kubectl descibe pvc <pvc_name> -n elastic-namespace`
 
 ---
 
